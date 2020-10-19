@@ -25,3 +25,46 @@
 “ед”: [“шт.”]
 }
 """
+
+list_product = []
+
+while True:
+    name_product, price_product, quantity_product, unit_product = None, None, None, None
+    while not name_product:
+        name_product = input('Введите название товара: ')
+        if not name_product:
+            print('===> Вы не ввели значение.')
+
+    while not price_product:
+        price_product = float(input('Введите стоимость товара: '))
+        if not price_product:
+            print('===> Вы не ввели значение.')
+
+    while not quantity_product:
+        quantity_product = int(input('Введите количество товара: '))
+        if not quantity_product:
+            print('===> Вы не ввели значение.')
+
+    while not unit_product:
+        unit_product = input('Введите единицу измерения товара(по умолчанию "шт."): ') or 'шт.'
+        if not unit_product:
+            print('===> Вы не ввели значение.')
+
+    new_product = {
+        'название': name_product, 'цена': price_product, 'количество': quantity_product, 'eд': unit_product
+    }
+
+    while True:
+        is_add_new_item = input(f'Добавить новый товар в корзину [да/нет]? {new_product}: ')
+        if is_add_new_item.lower() == 'да':
+            list_product.append((len(list_product) + 1, new_product))
+            break
+        elif is_add_new_item.lower() == 'нет':
+            break
+
+    is_exit_adding_items = input(f'Для выхода из процедуры добавления товара введите 0: ')
+    if is_exit_adding_items == '0':
+        break
+
+print(f'Итоговый лист товаров\n{list_product}')
+
