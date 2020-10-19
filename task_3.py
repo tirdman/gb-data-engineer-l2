@@ -20,8 +20,8 @@ DICT_SEASON = {
 
 in_month = int(input('Введите месяц в виде целого числа от 1 до 12: '))
 
-dict_result = list_result = LIST_SEASON[in_month - 1]
-list_result = None
+dict_result = None
+list_result = list_result = LIST_SEASON[in_month - 1]
 
 
 for season_key, season_values in DICT_SEASON.items():
